@@ -63,6 +63,7 @@ for ($i = 0; $i -lt $domainArr.Length; $i++){
             } elseif (($hitCheck -gt 0) -AND ($hitCheck -lt $threshold)){
                 Write-Host "INTERACTIONS OBSERVED WITH DOMAIN | " $domainArr[$i]
                 Write-Host "Interactions Observed (Count): " $hitCheck
+                Add-Content -Path InteractionsObservedWithIOC.txt -Value "Interactions were observed with the IOC $($domainArr[$i]). Kindly investigate further" 
                 $finalblockList += $domainArr[$i]
             } else {
                 $finalblockList += $domainArr[$i]
